@@ -13,18 +13,22 @@ public class FuncionarioAutenticado {
 	@Column(nullable = false, length = 120)
 	private String nome;
 
-	@Column(nullable = false, length = 20)
+	@Column(nullable = false, length = 20, unique = true)
 	private String nif;
 
 	@Column(nullable = false)
 	private boolean ativo = true;
 
-	public Long getId() {
-		return id;
+	public FuncionarioAutenticado() {}
+
+	public FuncionarioAutenticado(String nome, String nif) {
+		this.nome = nome;
+		this.nif = nif;
+		this.ativo = true;
 	}
 
-	public void setId(Long id) {
-		this.id = id;
+	public Long getId() {
+		return id;
 	}
 
 	public String getNome() {

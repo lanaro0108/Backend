@@ -11,9 +11,10 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class AuthController {
 
+
 	@GetMapping("/login")
 	public String loginPage() {
-		return "auth/login"; // templates/auth/login.html
+		return "auth/login";
 	}
 
 	@PostMapping("/login")
@@ -22,12 +23,13 @@ public class AuthController {
 						HttpSession session,
 						Model model) {
 
-							boolean credenciaisOk = false;
+		boolean credenciaisOk = false;
 
 		if (!credenciaisOk) {
 			model.addAttribute("erro", "NIF ou senha inválidos.");
 			return "auth/login";
 		}
+
 
 		session.setAttribute("usuarioLogado", true);
 		session.setAttribute("nif", nif);
